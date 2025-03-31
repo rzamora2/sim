@@ -100,7 +100,9 @@ export const useEnvironmentStore = create<EnvironmentStore>()((set, get) => ({
   },
 
   getVariable: (key: string): string | undefined => {
-    return get().variables[key]?.value
+    const variable = get().variables[key]
+    logger.info(`Getting variable ${key}:`, { exists: !!variable?.value })
+    return variable?.value
   },
 
   getAllVariables: (): Record<string, EnvironmentVariable> => {

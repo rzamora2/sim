@@ -1,4 +1,7 @@
 import type { NextConfig } from 'next'
+import dotenv from 'dotenv'
+
+dotenv.config() // Load environment variables from .env file
 
 // Check if we're building for standalone distribution
 const isStandaloneBuild = process.env.USE_LOCAL_STORAGE === 'true'

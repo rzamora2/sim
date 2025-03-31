@@ -1,4 +1,4 @@
-import { Chat } from './components/chat/chat'
+import { ChatWorkflow } from '@/components/ChatWorkflow'
 import { ControlBar } from './components/control-bar/control-bar'
 import { ErrorBoundary } from './components/error'
 import { Panel } from './components/panel/panel'
@@ -9,7 +9,7 @@ export default function WorkflowLayout({ children }: { children: React.ReactNode
     <>
       <ControlBar />
       <Toolbar />
-      {/* <Chat /> */}
+      <ChatWorkflow />
       <Panel />
       <main className="grid items-start gap-2 bg-muted/40 h-[calc(100vh-4rem)]">
         <ErrorBoundary>{children}</ErrorBoundary>

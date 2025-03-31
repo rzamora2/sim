@@ -22,9 +22,15 @@ export const useChatStore = create<ChatStore>()(
           const workflowStore = useWorkflowStore.getState()
           const apiKey = useEnvironmentStore.getState().getVariable('OPENAI_API_KEY')
 
+          // Add debug log
+          logger.info('Environment check:', {
+            hasApiKey: !!apiKey,
+            keyLength: apiKey?.length,
+          })
+
           if (!apiKey) {
             throw new Error(
-              'OpenAI API key not found. Please add it to your environment variables.'
+              'OpenAI API key not found. Please add OPENAI_API_KEY to your environment variables.'
             )
           }
 
